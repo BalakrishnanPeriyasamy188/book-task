@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header text-center">
+        Pagination: {{book.pagination}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Title : {{book.title}}</h5>
+        <div class="card-text">Key: {{book.key}}</div>
+        <span class="card-text">Publishers:</span>
+        <span *ngFor="let b of book.publishers">
+            <span class="card-text"> {{b}}</span>
+        </span>
+        <div class="card-text">Publish Date : {{book.publish_date}}</div>
+        <div class="card-text">Publish Country : {{book.publish_country}}</div>
+        <span class="card-text">Authors:</span>
+        <span *ngFor="let a of book.authors">
+            {{a.key}}
+        </span>
+        <ng-container *ngIf="book.subjects?.length">
+            <span class="card-text">Subjects:</span>
+            <span *ngFor="let sd of book.subjects">
+                {{sd}}
+            </span>
+        </ng-container>
+        <br>
+        <span class="card-text">Publish Places:</span>
+        <span *ngFor="let p of book.publish_places">
+            {{p}}
+        </span>
+        <div class="card-text">Latest Revision : {{book.latest_revision}}</div>
+        <div class="card-text">Revision : {{book.revision}}</div>
+    </div>
+</div>
+
+<button type="button" (click)="close()" class="btn btn-danger mt-3">Back</button>
